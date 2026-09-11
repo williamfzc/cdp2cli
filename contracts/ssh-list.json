@@ -1,0 +1,53 @@
+{
+  "method": "ssh_list",
+  "source": "active-exploration",
+  "adapter": "ipc-invoke",
+  "target": {
+    "channel": "zcode:list-ssh-config-aliases",
+    "bridgeMethod": "window.zcode.listSSHConfigAliases",
+    "invocation": "Runtime.evaluate({expression: 'await window.zcode.listSSHConfigAliases()', returnByValue: true})"
+  },
+  "params": {
+    "schema": {},
+    "description": "Zero parameters; reads Host aliases from the local ~/.ssh/config"
+  },
+  "side_effect": "read",
+  "evidence": [
+    "bridge-enumeration",
+    "successful-read-call",
+    "repeat-verification"
+  ],
+  "verification": {
+    "repeat_count": 2,
+    "contract": {
+      "type": "array",
+      "items": {
+        "alias": "string",
+        "host": "string",
+        "port": "number",
+        "username": "string",
+        "privateKeyPath": "string|null",
+        "source": "string"
+      }
+    },
+    "run1": {
+      "type": "array",
+      "length": 6,
+      "itemKeys": ["alias", "host", "port", "username", "privateKeyPath", "source"]
+    },
+    "run2": {
+      "type": "array",
+      "length": 6,
+      "itemKeys": ["alias", "host", "port", "username", "privateKeyPath", "source"]
+    },
+    "schema_consistent": true,
+    "no_side_effect": {
+      "url_unchanged": true,
+      "window_zcode_available": true,
+      "note": "Page URL identical before and after the call (file://.../index.html); window.zcode continuously available; readyState moving from interactive to complete is the page finishing its natural load, not a side effect of the call"
+    }
+  },
+  "app_version": "3.11.2",
+  "exploration_date": "2026-09-08",
+  "notes": "All 120 window.zcode methods are writable=false, configurable=false; method-level contextBridge wrap hooks are not feasible. Invocation is a direct Runtime.evaluate call of a window.zcode method, not hook interception. No model-list methods exist (getModels/listModels/getAvailableModels all absent); listSSHConfigAliases is the read-only array method with the clearest return shape and richest data."
+}
