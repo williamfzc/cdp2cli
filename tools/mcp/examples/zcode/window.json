@@ -1,0 +1,52 @@
+{
+  "name": "window",
+  "description": "Read the current ZCode window state.",
+  "sideEffect": "read",
+  "verification": {
+    "status": "verified",
+    "appVersion": "3.16.2",
+    "date": "2026-10-22",
+    "evidence": [
+      "Derived from the previous local ZCode CLI verification record."
+    ]
+  },
+  "inputSchema": {
+    "type": "object",
+    "properties": {},
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "maximized": {
+        "type": "boolean"
+      },
+      "supportsNativeRoundedCorners": {
+        "type": "boolean"
+      },
+      "zoomLevel": {
+        "type": "number"
+      },
+      "leftPaddingPx": {
+        "type": "number",
+        "minimum": 0
+      }
+    },
+    "required": [
+      "maximized",
+      "supportsNativeRoundedCorners",
+      "zoomLevel",
+      "leftPaddingPx"
+    ],
+    "additionalProperties": false
+  },
+  "execution": {
+    "kind": "expression",
+    "expression": "(async (args) => { const chrome = await window.zcode.getDesktopWindowChromeState(); const zoom = await window.zcode.getDesktopZoomLevel(); const overlay = await window.zcode.getWindowControlsOverlayMetrics(); return {maximized: chrome.isMaximized, supportsNativeRoundedCorners: chrome.supportsNativeRoundedCorners, zoomLevel: zoom.zoomLevel, leftPaddingPx: overlay.leftPaddingPx}; })",
+    "requiredMethods": [
+      "getDesktopWindowChromeState",
+      "getDesktopZoomLevel",
+      "getWindowControlsOverlayMetrics"
+    ]
+  }
+}

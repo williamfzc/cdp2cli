@@ -2,7 +2,7 @@ package main
 
 // cdp2cli — methodology reference CLI (globally installed).
 // Prints the method, forensic recipes, build SOP and sample contracts for turning
-// web-stack desktop apps into CLIs, so agents can read them over a shell without
+// web-stack desktop apps into CLIs or MCP services, so agents can read them over a shell without
 // accessing the cdp2cli repository. Content is embedded via go:embed: after a
 // method upgrade, rebuild and reinstall.
 
@@ -18,10 +18,13 @@ import (
 //go:embed dist/PLAYBOOK.md
 var playbook string
 
+//go:embed dist/MCP_PLAYBOOK.md
+var mcpPlaybook string
+
 //go:embed dist/contracts
 var contractsFS embed.FS
 
-const usage = `cdp2cli — web desktop app → CLI conversion method reference
+const usage = `cdp2cli — web desktop app → CLI / MCP service workflow reference
 
 Usage:
   cdp2cli skill [topic]     print the methodology to stdout
@@ -36,6 +39,9 @@ skill topics:
   contract       the contract schema (how to write contracts/*.json)
   build          build SOP for spinning a standalone CLI off contracts (project layout / lifecycle / command templates / verification loop / build pitfalls)
   safety         known pitfalls and safety notes
+  mcp            create, inspect, extend and modify standalone MCP services
+  mcp-create     first-service generation and verification
+  mcp-extend     add and update capabilities without regenerating a service
 
 Sample contracts come from the ZCode conversion and serve as the format reference for command contracts.
 `
@@ -79,6 +85,12 @@ func printSkill(topic string) {
 		printSection(playbook, "## 3.", "## 4.")
 	case "safety":
 		printSection(playbook, "## 4.", "## 5.")
+	case "mcp":
+		fmt.Print(mcpPlaybook)
+	case "mcp-create":
+		printSection(mcpPlaybook, "## Create a service", "## Extend or modify a service")
+	case "mcp-extend":
+		printSection(mcpPlaybook, "## Extend or modify a service", "## Verify and hand off")
 	default:
 		fmt.Fprintf(os.Stderr, "unknown skill topic: %s (see cdp2cli help)\n", topic)
 		os.Exit(1)

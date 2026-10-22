@@ -1,0 +1,22 @@
+{
+  "name": "cdp2cli-mcp-toolkit",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "cdp2mcp": "cli.mjs"
+  },
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test test/*.test.mjs",
+    "test:memory": "node --expose-gc test/memory.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.1",
+    "ajv": "8.20.0",
+    "ws": "8.22.0"
+  }
+}

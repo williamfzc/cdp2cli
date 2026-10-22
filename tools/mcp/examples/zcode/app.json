@@ -1,0 +1,17 @@
+{
+  "name": "zcode",
+  "endpoint": "http://127.0.0.1:9227",
+  "userAgentIncludes": "ZCode/",
+  "targetUrlIncludes": "",
+  "bridge": "window.zcode",
+  "limits": {
+    "requestTimeoutMs": 5000,
+    "connectTimeoutMs": 3000,
+    "maxQueue": 32,
+    "idleTimeoutMs": 30000,
+    "maxResponseBytes": 1048576
+  },
+  "supportedVersions": [
+    "3.16.2"
+  ]
+}

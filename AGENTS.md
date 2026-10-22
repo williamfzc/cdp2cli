@@ -1,20 +1,26 @@
 # AGENTS.md — Agent Working Discipline
 
-This is cdp2cli: the **method and discovery layer** for turning web-stack desktop apps into CLIs (not a shipped CLI).
-For the methodology and safety notes see [PLAYBOOK.md](./PLAYBOOK.md); this file governs only how agents work in this
-repository.
+This is cdp2cli: an **agent-facing workflow guide and reusable generation/runtime toolkit** for turning web-stack
+desktop apps into standalone products. It is not an app-specific product or a shipped product CLI.
+For the methodology and safety notes see [PLAYBOOK.md](./PLAYBOOK.md); for the MCP service workflow see
+[MCP_PLAYBOOK.md](./MCP_PLAYBOOK.md). This file governs only how agents work in this repository.
 
 ## What This Repository Is
 
-- **The products are documents and facts**: `PLAYBOOK.md` (general method), `profiles/` (app facts),
-  `contracts/` (verified interface contracts), `tools/research/` (forensic .mjs probes + `evidence/` records),
-  `docs/` (design and retrospectives).
-- **The shipped CLI is not here.** Once an app is established, spin off a standalone project from `contracts/`
-  (single app, single binary, e.g. the Go zcodecli). Do not pile product CLI code back into this repository.
+- **The products are documents, facts, and reusable tooling**: `PLAYBOOK.md` (general CLI method),
+  `MCP_PLAYBOOK.md` (single MCP SOP), `profiles/` (app facts), `contracts/` (verified interface contracts),
+  `tools/research/` (forensic .mjs probes + `evidence/` records), `tools/mcp/` (reusable MCP generator/runtime
+  toolkit), and `docs/` (design and retrospectives).
+- **The shipped app product is not here.** Once an app is established, use the verified facts and contracts to
+  generate a standalone project from `contracts/` or an MCP capability set from `tools/mcp/` (single app, single
+  product, e.g. the Go zcodecli). Do not pile an app-specific product or generated service back into this repository.
 - `tools/research/*.mjs` are bare-CDP forensic probes (zero dependencies, Node >= 22) — research instruments, not
   product code.
-- `cli/` is the **methodology reference CLI** packing PLAYBOOK + contract samples via go:embed (so agents can read
+- `cli/` is the **methodology reference CLI** packing PLAYBOOK + MCP_PLAYBOOK + contract samples via go:embed (so agents can read
   the method offline); it is not a product CLI for any app. Product CLIs are still spun off as standalone projects.
+- `tools/mcp/` is the reusable generation/runtime toolkit. It accepts verified app and capability declarations,
+  creates an independent MCP service, and supports checked `add` and `update` changes after `init`; it is not a
+  universal adapter for arbitrary existing MCP servers.
 
 ## Working Discipline
 

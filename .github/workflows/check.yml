@@ -1,0 +1,38 @@
+# Verifies the shared generator, resource bounds and offline agent workflow.
+# Real desktop-application acceptance remains a separately recorded local check.
+name: Verify agent workflows and MCP toolkit
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  mcp:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: tools/mcp/package-lock.json
+      - run: npm ci --ignore-scripts
+        working-directory: tools/mcp
+      - run: npm test
+        working-directory: tools/mcp
+      - run: npm audit --omit=dev --audit-level=high
+        working-directory: tools/mcp
+      - run: npm run test:memory
+        working-directory: tools/mcp
+  offline-guide:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: cli/go.mod
+          cache: false
+      - run: make -C cli build
+      - run: ./cli/cdp2cli skill mcp
+      - run: ./cli/cdp2cli skill mcp-create
+      - run: ./cli/cdp2cli skill mcp-extend

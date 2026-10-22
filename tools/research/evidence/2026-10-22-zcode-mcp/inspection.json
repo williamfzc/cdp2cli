@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-22T12:00:13.514Z",
+  "appVersion": "3.16.2",
+  "bridge": "window.zcode",
+  "pages": 2,
+  "totalCandidates": 131,
+  "examinedProperties": 131,
+  "coverage": "own-data-properties",
+  "skippedAccessors": 0,
+  "verification": "unverified",
+  "operation": "own-property descriptors only; no candidate method invocation"
+}

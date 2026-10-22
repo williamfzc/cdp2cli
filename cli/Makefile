@@ -5,6 +5,7 @@
 build:
 	mkdir -p dist/contracts
 	cp ../PLAYBOOK.md dist/PLAYBOOK.md
+	cp ../MCP_PLAYBOOK.md dist/MCP_PLAYBOOK.md
 	cp ../contracts/*.json dist/contracts/
 	CGO_ENABLED=1 go build -ldflags="-linkmode=external" -o cdp2cli .
 

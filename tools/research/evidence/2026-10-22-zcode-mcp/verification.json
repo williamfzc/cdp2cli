@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-22T12:15:20.828207+00:00",
+  "checks": {
+    "automatedTests": {
+      "passed": 40,
+      "failed": 0
+    },
+    "productionDependencyAudit": {
+      "knownVulnerabilities": 0
+    },
+    "memoryStress": "passed: 5100 calls, 100 registry rebuilds, 12 reconnects",
+    "realApplication": "8 lifecycle checks passed; final generated-service configuration smoke passed",
+    "offlineGuide": "final build passed; complete embedded guide matches canonical source; create and extend topics and legacy build topic resolve",
+    "documentation": "new documentation frontmatter and relative links checked"
+  },
+  "sourceSha256": {
+    "cli/main.go": "653d544714f77bf6eef6345c743bc549029fb45cf208e2e598f960e469cd9a66",
+    "cli/Makefile": "a30189084babe34ed1483a3bc2ebea62f033fddee89845b626be6db96184334f",
+    "MCP_PLAYBOOK.md": "07de109b6dbf2ff3cc84fbe007e882d26787c7502986031b640004c24a9e14d6",
+    "tools/mcp/package.json": "1a6e7fab06dd3bd9a139113106b274bd95017d326a0a06f3b41ca6ae0f844d3f",
+    "tools/mcp/package-lock.json": "3d6bc4f7f22215ae9286a72bfba6148335d19e1c4794651d29d87ee7c4ac914a",
+    "tools/mcp/cli.mjs": "79bb7503370021ba1c2e2ba958b0009fbda2e8e55e9d049db14d043900513d4c",
+    "tools/mcp/server.mjs": "1250d8ef60f46d78b43c996e1cc9dadf46f7c029ce89a58e1cef1742e3d6c855",
+    "tools/mcp/src/connection.mjs": "328c57e24c31820a41af583978eea1b3a29e47dcd728ea1723ca344042d2d523",
+    "tools/mcp/src/inspection.mjs": "78299d80188fc25e3d5c421a8e09a3fdc850e88bd09e1c2862159e3bc9783f77",
+    "tools/mcp/src/project-files.mjs": "adcc9df14ed258d9c1ec3e056208ea607456aa16ff4b16f41bc68d1638ad9149",
+    "tools/mcp/src/registry.mjs": "265128beeb20822161783e19f385c7efbf2efb02646e097860f3a654a38dbb6d",
+    "tools/mcp/src/service.mjs": "a2d7aee5664150197cd7cbbf001936c3c1e17eee89e2557d2b983b297c2850c0",
+    "tools/mcp/src/transport.mjs": "9ff063c0e455908eb0f5f2e97099a08efb368164f58d22ece3452b4458389116"
+  }
+}

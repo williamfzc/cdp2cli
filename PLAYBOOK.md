@@ -1,20 +1,23 @@
 ---
 type: Method
-title: Turning Web-Stack Desktop Apps into CLIs
-description: App-agnostic method for turning CEF/Electron/WebView2 desktop apps into CLIs over CDP - runtime detection and attachment, capability discovery with read-first probing, the contract schema, and the build SOP for spinning off a standalone product CLI.
+title: Turning Web-Stack Desktop Apps into CLIs and MCP Services
+description: App-agnostic method for turning CEF/Electron/WebView2 desktop apps into standalone CLIs or MCP services over CDP - runtime detection and attachment, capability discovery with read-first probing, the contract schema, and product verification.
 ---
 
-# PLAYBOOK — A General Method for Turning Web-Stack Desktop Apps into CLIs
+# PLAYBOOK — A General Method for Turning Web-Stack Desktop Apps into CLIs and MCP Services
 
 App-agnostic. The method solves one problem: **without official APIs, how to establish
 how a CEF/Electron/WebView2 desktop app can be driven, and freeze the conclusions
-into something used to build it a standalone CLI.**
+into something used to build a standalone CLI or MCP service.**
 
 A new target app = add one `profiles/<app>.md` + contracts in `contracts/`; the method itself does not change.
 
 This repository is the **discovery layer**: the method (this file), app facts (`profiles/`), verified interface
-contracts (`contracts/`), forensic probes and evidence (`tools/research/`). The CLI actually handed to users is a
-**standalone project spun off from these facts** (single app, single binary, self-managed lifecycle), not in this repo.
+contracts (`contracts/`), forensic probes and evidence (`tools/research/`). The CLI or MCP service actually handed to
+users is a **standalone project spun off from these facts** (single app, single product, independently installable),
+not in this repo. The CLI route remains the detailed path in §3.1. The MCP route is the single agent SOP in
+[MCP_PLAYBOOK.md](./MCP_PLAYBOOK.md); this file supplies its discovery and verification inputs without duplicating
+that service workflow.
 
 ## 0. Runtime Detection and the Attachment Matrix
 
@@ -188,13 +191,14 @@ sources of required context fields (e.g. a resource-origin id).
 ## 3. The Two-Layer Product
 
 ```
-Discovery layer (this repo)            Product CLI (standalone project, spun off contracts)
-──────────────────────────             ─────────────────────────────────────────────────
-PLAYBOOK     general method             single app, single-file binary (Go etc.)
-profiles/    app facts                  self-managed lifecycle: start launches the app with the debug port
-contracts/   verified contracts   ──►   read commands + write commands, executed directly
-tools/       forensic probes+evidence   --json structured output
-docs/        design & retrospectives    go install / download and run
+Discovery layer (this repo)            Standalone product (spun off from verified facts)
+──────────────────────────             ────────────────────────────────────────────────
+PLAYBOOK     general method             CLI or MCP service for one app
+MCP_PLAYBOOK MCP service SOP            independently installable product files
+profiles/    app facts                  self-managed lifecycle where applicable
+contracts/   verified contracts   ──►   read/write commands or MCP capabilities
+tools/       forensic probes+evidence   verified app-specific execution
+docs/        design & retrospectives    product-specific README and verification
 ```
 
 Product CLI conventions:
@@ -223,6 +227,26 @@ to operating in the app; no dry-run gate). Even when writes are allowed, two cla
 - **Never built (even when writes are allowed)**: authorization gates / accepting agreements, device pairing,
   unattended batch operations, install/update, payment/OAuth — irreversible or privilege-escalating actions; only a
   human in the real UI does these.
+
+### MCP product route
+
+For an agent-facing MCP service, use [MCP_PLAYBOOK.md](./MCP_PLAYBOOK.md) as the only service SOP. This playbook
+supplies the discovery and verification inputs; the service-specific sequence is kept in that guide.
+
+The route is:
+
+1. Establish app identity, bridge/request-replay/DOM evidence, and verified capability contracts using §§0–2.
+2. Run `node tools/mcp/cli.mjs init` to create a new standalone service. `init` is for a new destination only.
+3. Run `check` before handoff, then verify the generated service through a real MCP client and the real application.
+4. Use `add` for a new verified capability. Use `update` for an existing name whose contract has changed.
+5. Treat input schema, output schema, and `sideEffect` changes as breaking by default; `--allow-breaking` is the
+   explicit escape hatch after the agent records why the change is compatible and re-verifies the app.
+6. Publish versioned capability files and the index atomically. Remove superseded files only after the new index is
+   valid; an invalid update keeps the last valid service active.
+
+The generated service is app-specific and lives outside this repository. The toolkit is a reusable generator/runtime,
+not an automatic app graph builder and not a safe way to write unknown operations. A capability candidate from
+`inspect` is metadata for the next investigation step, never proof that a method may be called.
 
 ### 3.1 Build SOP: spinning a CLI off the contracts
 

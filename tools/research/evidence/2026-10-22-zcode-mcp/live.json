@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-22T12:06:08.572Z",
+  "checks": [
+    {
+      "name": "Freshly generated standalone service reads real ZCode",
+      "passed": true,
+      "detail": {
+        "version": "3.16.2"
+      }
+    },
+    {
+      "name": "New capability is installed into the running service",
+      "passed": true,
+      "detail": {
+        "capabilityNames": [
+          "app_status",
+          "desktop_activity",
+          "locale",
+          "service_diagnostics",
+          "window"
+        ],
+        "resultFields": [
+          "runningAgentSessionCount"
+        ]
+      }
+    },
+    {
+      "name": "Repeated addition changes nothing",
+      "passed": true
+    },
+    {
+      "name": "Existing capability is updated in the same running service",
+      "passed": true,
+      "detail": {
+        "updated": "locale",
+        "otherCapabilitiesStillWork": true,
+        "publishedFiles": 3
+      }
+    },
+    {
+      "name": "One hundred reads and twelve simultaneous reads release temporary resources",
+      "passed": true,
+      "detail": {
+        "sequential": 100,
+        "concurrent": 12,
+        "remainingTemporaryResources": 0
+      }
+    },
+    {
+      "name": "Actual page reload is followed by successful reads",
+      "passed": true
+    },
+    {
+      "name": "Same MCP service survives app exit and restart",
+      "passed": true
+    },
+    {
+      "name": "Stopping the MCP service leaves the application running",
+      "passed": true
+    }
+  ]
+}

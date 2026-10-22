@@ -1,0 +1,38 @@
+{
+  "name": "locale",
+  "description": "Read the system language from ZCode.",
+  "sideEffect": "read",
+  "verification": {
+    "status": "verified",
+    "appVersion": "3.16.2",
+    "date": "2026-10-22",
+    "evidence": [
+      "Derived from the previous local ZCode CLI verification record."
+    ]
+  },
+  "inputSchema": {
+    "type": "object",
+    "properties": {},
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "locale": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "required": [
+      "locale"
+    ],
+    "additionalProperties": false
+  },
+  "execution": {
+    "kind": "expression",
+    "expression": "(async (args) => ({locale: await window.zcode.getSystemLocale()}))",
+    "requiredMethods": [
+      "getSystemLocale"
+    ]
+  }
+}

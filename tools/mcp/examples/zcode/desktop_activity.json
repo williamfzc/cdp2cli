@@ -1,0 +1,38 @@
+{
+  "name": "desktop_activity",
+  "description": "Read the number of running agent sessions reported by ZCode.",
+  "sideEffect": "read",
+  "verification": {
+    "status": "verified",
+    "appVersion": "3.16.2",
+    "date": "2026-10-22",
+    "evidence": [
+      "Live ZCode 3.16.2 read: only runningAgentSessionCount is returned; the older runningRepoWikiTaskCount field is absent."
+    ]
+  },
+  "inputSchema": {
+    "type": "object",
+    "properties": {},
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "runningAgentSessionCount": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "required": [
+      "runningAgentSessionCount"
+    ],
+    "additionalProperties": false
+  },
+  "execution": {
+    "kind": "expression",
+    "expression": "async () => { const activity = await window.zcode.getDesktopSessionActivity(); return {runningAgentSessionCount:activity.runningAgentSessionCount}; }",
+    "requiredMethods": [
+      "getDesktopSessionActivity"
+    ]
+  }
+}

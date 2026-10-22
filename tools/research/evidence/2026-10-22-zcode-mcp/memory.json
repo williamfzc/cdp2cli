@@ -1,0 +1,221 @@
+{
+  "runtime": {
+    "node": "v22.21.1",
+    "ws": "8.22.0"
+  },
+  "samples": [
+    {
+      "label": "warmup",
+      "heapUsed": 10832264,
+      "rss": 110788608,
+      "diagnostics": {
+        "connected": true,
+        "pendingRequests": 0,
+        "queuedRequests": 0,
+        "activeRequests": 0,
+        "activeSessions": 0,
+        "activeObjectGroups": 0,
+        "connections": 1,
+        "cachedContracts": 1,
+        "closed": false
+      }
+    },
+    {
+      "label": "batch-1",
+      "heapUsed": 9625264,
+      "rss": 120209408,
+      "diagnostics": {
+        "connected": true,
+        "pendingRequests": 0,
+        "queuedRequests": 0,
+        "activeRequests": 0,
+        "activeSessions": 0,
+        "activeObjectGroups": 0,
+        "connections": 1,
+        "cachedContracts": 1,
+        "closed": false
+      }
+    },
+    {
+      "label": "batch-2",
+      "heapUsed": 9934480,
+      "rss": 121339904,
+      "diagnostics": {
+        "connected": true,
+        "pendingRequests": 0,
+        "queuedRequests": 0,
+        "activeRequests": 0,
+        "activeSessions": 0,
+        "activeObjectGroups": 0,
+        "connections": 1,
+        "cachedContracts": 1,
+        "closed": false
+      }
+    },
+    {
+      "label": "batch-3",
+      "heapUsed": 10177584,
+      "rss": 124141568,
+      "diagnostics": {
+        "connected": true,
+        "pendingRequests": 0,
+        "queuedRequests": 0,
+        "activeRequests": 0,
+        "activeSessions": 0,
+        "activeObjectGroups": 0,
+        "connections": 1,
+        "cachedContracts": 1,
+        "closed": false
+      }
+    },
+    {
+      "label": "batch-4",
+      "heapUsed": 10351288,
+      "rss": 98402304,
+      "diagnostics": {
+        "connected": true,
+        "pendingRequests": 0,
+        "queuedRequests": 0,
+        "activeRequests": 0,
+        "activeSessions": 0,
+        "activeObjectGroups": 0,
+        "connections": 1,
+        "cachedContracts": 1,
+        "closed": false
+      }
+    },
+    {
+      "label": "batch-5",
+      "heapUsed": 10533216,
+      "rss": 98861056,
+      "diagnostics": {
+        "connected": true,
+        "pendingRequests": 0,
+        "queuedRequests": 0,
+        "activeRequests": 0,
+        "activeSessions": 0,
+        "activeObjectGroups": 0,
+        "connections": 1,
+        "cachedContracts": 1,
+        "closed": false
+      }
+    },
+    {
+      "label": "after-reconnects",
+      "heapUsed": 13665944,
+      "rss": 136216576,
+      "diagnostics": {
+        "connected": true,
+        "pendingRequests": 0,
+        "queuedRequests": 0,
+        "activeRequests": 0,
+        "activeSessions": 0,
+        "activeObjectGroups": 0,
+        "connections": 13,
+        "cachedContracts": 1,
+        "closed": false
+      }
+    },
+    {
+      "label": "final",
+      "heapUsed": 13506120,
+      "rss": 136331264,
+      "diagnostics": {
+        "connected": false,
+        "pendingRequests": 0,
+        "queuedRequests": 0,
+        "activeRequests": 0,
+        "activeSessions": 0,
+        "activeObjectGroups": 0,
+        "connections": 13,
+        "cachedContracts": 0,
+        "closed": true
+      }
+    }
+  ],
+  "registrySamples": [
+    {
+      "label": "registry-20",
+      "heapUsed": 11493256,
+      "rss": 119504896,
+      "diagnostics": {
+        "connected": false,
+        "pendingRequests": 0,
+        "queuedRequests": 0,
+        "activeRequests": 0,
+        "activeSessions": 0,
+        "activeObjectGroups": 0,
+        "connections": 1,
+        "cachedContracts": 1,
+        "closed": false
+      }
+    },
+    {
+      "label": "registry-40",
+      "heapUsed": 11910920,
+      "rss": 122060800,
+      "diagnostics": {
+        "connected": false,
+        "pendingRequests": 0,
+        "queuedRequests": 0,
+        "activeRequests": 0,
+        "activeSessions": 0,
+        "activeObjectGroups": 0,
+        "connections": 1,
+        "cachedContracts": 1,
+        "closed": false
+      }
+    },
+    {
+      "label": "registry-60",
+      "heapUsed": 11989880,
+      "rss": 122306560,
+      "diagnostics": {
+        "connected": false,
+        "pendingRequests": 0,
+        "queuedRequests": 0,
+        "activeRequests": 0,
+        "activeSessions": 0,
+        "activeObjectGroups": 0,
+        "connections": 1,
+        "cachedContracts": 1,
+        "closed": false
+      }
+    },
+    {
+      "label": "registry-80",
+      "heapUsed": 12208808,
+      "rss": 123027456,
+      "diagnostics": {
+        "connected": false,
+        "pendingRequests": 0,
+        "queuedRequests": 0,
+        "activeRequests": 0,
+        "activeSessions": 0,
+        "activeObjectGroups": 0,
+        "connections": 1,
+        "cachedContracts": 1,
+        "closed": false
+      }
+    },
+    {
+      "label": "registry-100",
+      "heapUsed": 12385208,
+      "rss": 124125184,
+      "diagnostics": {
+        "connected": false,
+        "pendingRequests": 0,
+        "queuedRequests": 0,
+        "activeRequests": 0,
+        "activeSessions": 0,
+        "activeObjectGroups": 0,
+        "connections": 1,
+        "cachedContracts": 1,
+        "closed": false
+      }
+    }
+  ],
+  "calls": 5100,
+  "reconnects": 12,
+  "registryRefreshes": 100
+}
