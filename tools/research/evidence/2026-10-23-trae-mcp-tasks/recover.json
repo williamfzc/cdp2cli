@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-22T16:12:46.999Z",
+  "serviceRestart": {
+    "messages": 6,
+    "identical": true,
+    "markerRecovered": true
+  },
+  "workbenchReload": {
+    "loggedIn": true,
+    "markerRecovered": true,
+    "source": "live"
+  }
+}

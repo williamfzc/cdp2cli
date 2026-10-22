@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-22T16:35:40.902Z",
+  "pid": 52050,
+  "onlineBeforeQuit": true,
+  "appExited": true,
+  "offlineReport": {
+    "fastMs": 11,
+    "example": "MCP error -32603: Application unavailable: fetch failed"
+  },
+  "appRelaunched": true,
+  "recoveredWithWorkspace": true,
+  "recovered": true,
+  "lastError": null
+}

@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-23T00:45:00+08:00",
+  "node": "v22.21.1",
+  "runner": "node --test",
+  "file": "adapter.test.mjs (isolated, mocked page dependencies via the adapter testContext parameter)",
+  "tests": 16,
+  "passed": 16,
+  "failed": 0,
+  "coverage": [
+    "unknown operation and argument validation (identifier charset, prompt length, maxChars/limit bounds)",
+    "status works while logged out; all other operations stop at LOGIN_REQUIRED",
+    "agents deduplication and cap",
+    "WORKSPACE_MISMATCH for create/send/stop",
+    "SESSION_PROJECT_MISMATCH for send/stop",
+    "create summary mapping",
+    "send SESSION_NOT_LOADED / SESSION_BUSY / SEND_REJECTED (with actionMayHaveRun)",
+    "stop STALE_TASK / TASK_IDENTITY_UNAVAILABLE / alreadyTerminal / STOP_UNAVAILABLE / STOP_REJECTED",
+    "get live store preference, ReplyUser plan-item text extraction, truncation, TASK_NOT_IN_PAGE",
+    "get fallback to remote history and refresh semantics",
+    "list summarization and missing project tolerance",
+    "editor null handling",
+    "APPLICATION_ERROR containment with sessionId passthrough"
+  ]
+}

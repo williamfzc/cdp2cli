@@ -1,0 +1,17 @@
+{
+  "name": "trae-cn",
+  "endpoint": "http://127.0.0.1:9232",
+  "userAgentIncludes": "TraeCN/",
+  "targetUrlIncludes": "/workbench/workbench.html",
+  "bridge": "window",
+  "supportedVersions": [
+    "1.107.1"
+  ],
+  "limits": {
+    "requestTimeoutMs": 45000,
+    "connectTimeoutMs": 3000,
+    "maxQueue": 32,
+    "idleTimeoutMs": 30000,
+    "maxResponseBytes": 1048576
+  }
+}

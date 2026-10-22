@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-22T16:12:23.616Z",
+  "sent": {
+    "sessionId": "6ada3584f416e594cec038a4",
+    "messageId": "6ada35e7f416e594cec038ba"
+  },
+  "staleGuard": "STALE_TASK",
+  "stopAccepted": true,
+  "finalStatus": "Stopped",
+  "assistantChars": 0
+}

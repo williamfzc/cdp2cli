@@ -1,0 +1,39 @@
+{
+  "ok": true,
+  "sessionId": "6ada3584f416e594cec038a4",
+  "name": "MCP Acceptance Check",
+  "status": "Finished",
+  "terminal": true,
+  "createdAt": 1792685444567,
+  "updatedAt": 1792685447445,
+  "sessionStatus": "Finished",
+  "streaming": false,
+  "source": "live",
+  "messages": [
+    {
+      "messageId": "6ada3584f416e594cec038a5",
+      "replyToMessageId": null,
+      "role": "user",
+      "status": "",
+      "text": "This is an isolated MCP acceptance check. Reply with exactly TRAE_MCP_OK. Do not read or modify files, run commands, or use any tools.",
+      "tools": []
+    },
+    {
+      "messageId": "6ada3584f416e594cec038a6",
+      "replyToMessageId": "6ada3584f416e594cec038a5",
+      "role": "assistant",
+      "status": "completed",
+      "text": "TRAE_MCP_OK",
+      "tools": [
+        {
+          "id": "pi_6ada3587f416e594cec038ab",
+          "name": "finish",
+          "status": "success",
+          "requiresConfirmation": false
+        }
+      ]
+    }
+  ],
+  "truncated": false,
+  "nextPageToken": null
+}
