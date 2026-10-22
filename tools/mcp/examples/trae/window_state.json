@@ -1,0 +1,69 @@
+{
+  "name": "window_state",
+  "description": "Read the current Trae window maximized state and geometry without changing the window.",
+  "sideEffect": "read",
+  "inputSchema": {
+    "type": "object",
+    "properties": {},
+    "required": [],
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "maximized": {
+        "type": "boolean"
+      },
+      "position": {
+        "type": "object",
+        "properties": {
+          "x": {
+            "type": "number"
+          },
+          "y": {
+            "type": "number"
+          },
+          "width": {
+            "type": "number"
+          },
+          "height": {
+            "type": "number"
+          },
+          "screenHeight": {
+            "type": "number"
+          },
+          "screenWidth": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "x",
+          "y",
+          "width",
+          "height",
+          "screenHeight",
+          "screenWidth"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "maximized",
+      "position"
+    ],
+    "additionalProperties": false
+  },
+  "execution": {
+    "kind": "expression",
+    "expression": "async () => { const id=window.vscode.context.configuration().windowId; const ipc=window.vscode.ipcRenderer; return {maximized:await ipc.invoke(\"vscode:isWindowMaximized\",id),position:await ipc.invoke(\"vscode:getWindowPosition\",id)}; }",
+    "requiredMethods": []
+  },
+  "verification": {
+    "status": "verified",
+    "appVersion": "1.104.3",
+    "date": "2026-10-22",
+    "evidence": [
+      "tools/research/evidence/2026-10-22-trae-mcp/INDEX.md"
+    ]
+  }
+}

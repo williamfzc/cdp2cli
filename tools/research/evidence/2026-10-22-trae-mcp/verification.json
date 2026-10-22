@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-22T12:45:22.530468+00:00",
+  "checks": {
+    "generatedProjectCheck": "passed: 3 verified read capabilities",
+    "realMcpClient": "8 checks passed",
+    "memory": "50 warm-up + 1000 measured real-application calls passed; zero temporary resources after batches and shutdown",
+    "dependencies": "generated project npm ci reported zero known vulnerabilities",
+    "documents": "frontmatter and relative links passed"
+  },
+  "declarationSha256": {
+    "tools/mcp/examples/trae/workspace.json": "8a7c9d7988fa822c4b2318b0027c97d5b646dfd4d7480db21b9c2a5f39b34899",
+    "tools/mcp/examples/trae/app.json": "2b00b74744f6f1eefd1c66fb1a4ac62b468bdb7aec41b6ce9c02616f0d885b59",
+    "tools/mcp/examples/trae/environment.json": "98c982703ed55892f341f38553484e06d2ee51304c0483dc671cf01d2ad4b3ed",
+    "tools/mcp/examples/trae/window_state.json": "8874afc0cf0d38d5e14edacf45e92e1f1dce5401b668ecd4807f0de29c633d81"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "trae",
+  "endpoint": "http://127.0.0.1:9231",
+  "userAgentIncludes": "Trae/",
+  "targetUrlIncludes": "/workbench/workbench.html",
+  "bridge": "window.icubeWorkspace",
+  "supportedVersions": [
+    "1.104.3"
+  ],
+  "limits": {
+    "requestTimeoutMs": 5000,
+    "connectTimeoutMs": 3000,
+    "maxQueue": 32,
+    "idleTimeoutMs": 30000,
+    "maxResponseBytes": 1048576
+  }
+}

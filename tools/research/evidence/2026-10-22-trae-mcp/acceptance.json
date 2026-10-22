@@ -1,0 +1,166 @@
+{
+  "date": "2026-10-22T12:43:52.472Z",
+  "application": "Trae",
+  "desktopVersion": "2.9.1",
+  "engineVersion": "1.104.3",
+  "checks": [
+    {
+      "name": "Independent generated service reads the actual Trae workbench",
+      "passed": true,
+      "detail": {
+        "engineVersion": "1.104.3",
+        "folderCount": 1,
+        "folderFields": [
+          "name",
+          "scheme",
+          "path"
+        ]
+      }
+    },
+    {
+      "name": "Window reading is added while the same service is running",
+      "passed": true,
+      "detail": {
+        "tools": [
+          "app_status",
+          "environment",
+          "service_diagnostics",
+          "window_state",
+          "workspace"
+        ]
+      }
+    },
+    {
+      "name": "An existing declaration can be updated without losing other reads",
+      "passed": true
+    },
+    {
+      "name": "Repeated and simultaneous real-app reads release temporary resources",
+      "passed": true,
+      "detail": {
+        "sequential": 200,
+        "concurrent": 12
+      }
+    },
+    {
+      "name": "Idle connections are released and the next read reconnects",
+      "passed": true
+    },
+    {
+      "name": "The same service recovers after the actual renderer reloads",
+      "passed": true
+    },
+    {
+      "name": "The same MCP process reports an offline app and recovers after restart",
+      "passed": true
+    },
+    {
+      "name": "Closing the service leaves Trae running",
+      "passed": true
+    }
+  ],
+  "samples": [
+    {
+      "calls": 40,
+      "connected": true,
+      "pendingRequests": 0,
+      "queuedRequests": 0,
+      "activeRequests": 0,
+      "activeSessions": 0,
+      "activeObjectGroups": 0,
+      "connections": 1,
+      "cachedContracts": 0,
+      "closed": false,
+      "capabilities": 3,
+      "registryError": null,
+      "writesEnabled": false,
+      "memory": {
+        "heapUsed": 20526904,
+        "rss": 104710144
+      }
+    },
+    {
+      "calls": 80,
+      "connected": true,
+      "pendingRequests": 0,
+      "queuedRequests": 0,
+      "activeRequests": 0,
+      "activeSessions": 0,
+      "activeObjectGroups": 0,
+      "connections": 1,
+      "cachedContracts": 0,
+      "closed": false,
+      "capabilities": 3,
+      "registryError": null,
+      "writesEnabled": false,
+      "memory": {
+        "heapUsed": 23396024,
+        "rss": 104939520
+      }
+    },
+    {
+      "calls": 120,
+      "connected": true,
+      "pendingRequests": 0,
+      "queuedRequests": 0,
+      "activeRequests": 0,
+      "activeSessions": 0,
+      "activeObjectGroups": 0,
+      "connections": 1,
+      "cachedContracts": 0,
+      "closed": false,
+      "capabilities": 3,
+      "registryError": null,
+      "writesEnabled": false,
+      "memory": {
+        "heapUsed": 25992936,
+        "rss": 105119744
+      }
+    },
+    {
+      "calls": 160,
+      "connected": true,
+      "pendingRequests": 0,
+      "queuedRequests": 0,
+      "activeRequests": 0,
+      "activeSessions": 0,
+      "activeObjectGroups": 0,
+      "connections": 1,
+      "cachedContracts": 0,
+      "closed": false,
+      "capabilities": 3,
+      "registryError": null,
+      "writesEnabled": false,
+      "memory": {
+        "heapUsed": 22171000,
+        "rss": 106348544
+      }
+    },
+    {
+      "calls": 200,
+      "connected": true,
+      "pendingRequests": 0,
+      "queuedRequests": 0,
+      "activeRequests": 0,
+      "activeSessions": 0,
+      "activeObjectGroups": 0,
+      "connections": 1,
+      "cachedContracts": 0,
+      "closed": false,
+      "capabilities": 3,
+      "registryError": null,
+      "writesEnabled": false,
+      "memory": {
+        "heapUsed": 30903368,
+        "rss": 108888064
+      }
+    }
+  ],
+  "unverified": [
+    "AI task submission/cancellation/result retrieval",
+    "editor contents",
+    "Trae CN",
+    "multi-window selection",
+    "multi-day memory behavior"
+  ]
+}

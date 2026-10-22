@@ -1,0 +1,121 @@
+{
+  "date": "2026-10-22T12:44:26.610Z",
+  "node": "v22.21.1",
+  "warmupCalls": 50,
+  "measuredCalls": 1000,
+  "retainedHeapGrowthBudgetBytes": 16777216,
+  "samples": [
+    {
+      "label": "warmup",
+      "heapUsed": 10088584,
+      "rss": 83935232,
+      "diagnostics": {
+        "connected": true,
+        "pendingRequests": 0,
+        "queuedRequests": 0,
+        "activeRequests": 0,
+        "activeSessions": 0,
+        "activeObjectGroups": 0,
+        "connections": 1,
+        "cachedContracts": 3,
+        "closed": false
+      }
+    },
+    {
+      "label": "calls-200",
+      "heapUsed": 10254616,
+      "rss": 84377600,
+      "diagnostics": {
+        "connected": true,
+        "pendingRequests": 0,
+        "queuedRequests": 0,
+        "activeRequests": 0,
+        "activeSessions": 0,
+        "activeObjectGroups": 0,
+        "connections": 1,
+        "cachedContracts": 3,
+        "closed": false
+      }
+    },
+    {
+      "label": "calls-400",
+      "heapUsed": 10502048,
+      "rss": 85852160,
+      "diagnostics": {
+        "connected": true,
+        "pendingRequests": 0,
+        "queuedRequests": 0,
+        "activeRequests": 0,
+        "activeSessions": 0,
+        "activeObjectGroups": 0,
+        "connections": 1,
+        "cachedContracts": 3,
+        "closed": false
+      }
+    },
+    {
+      "label": "calls-600",
+      "heapUsed": 10575176,
+      "rss": 88834048,
+      "diagnostics": {
+        "connected": true,
+        "pendingRequests": 0,
+        "queuedRequests": 0,
+        "activeRequests": 0,
+        "activeSessions": 0,
+        "activeObjectGroups": 0,
+        "connections": 1,
+        "cachedContracts": 3,
+        "closed": false
+      }
+    },
+    {
+      "label": "calls-800",
+      "heapUsed": 10635072,
+      "rss": 89341952,
+      "diagnostics": {
+        "connected": true,
+        "pendingRequests": 0,
+        "queuedRequests": 0,
+        "activeRequests": 0,
+        "activeSessions": 0,
+        "activeObjectGroups": 0,
+        "connections": 1,
+        "cachedContracts": 3,
+        "closed": false
+      }
+    },
+    {
+      "label": "calls-1000",
+      "heapUsed": 10682008,
+      "rss": 89882624,
+      "diagnostics": {
+        "connected": true,
+        "pendingRequests": 0,
+        "queuedRequests": 0,
+        "activeRequests": 0,
+        "activeSessions": 0,
+        "activeObjectGroups": 0,
+        "connections": 1,
+        "cachedContracts": 3,
+        "closed": false
+      }
+    },
+    {
+      "label": "closed",
+      "heapUsed": 10593624,
+      "rss": 89931776,
+      "diagnostics": {
+        "connected": false,
+        "pendingRequests": 0,
+        "queuedRequests": 0,
+        "activeRequests": 0,
+        "activeSessions": 0,
+        "activeObjectGroups": 0,
+        "connections": 1,
+        "cachedContracts": 0,
+        "closed": true
+      }
+    }
+  ]
+}

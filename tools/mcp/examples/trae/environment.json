@@ -1,0 +1,64 @@
+{
+  "name": "environment",
+  "description": "Read Trae engine identity, runtime versions and interface language; excludes environment variables.",
+  "sideEffect": "read",
+  "inputSchema": {
+    "type": "object",
+    "properties": {},
+    "required": [],
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "application": {
+        "type": "string"
+      },
+      "engineVersion": {
+        "type": "string"
+      },
+      "platform": {
+        "type": "string"
+      },
+      "arch": {
+        "type": "string"
+      },
+      "language": {
+        "type": "string"
+      },
+      "electron": {
+        "type": "string"
+      },
+      "chrome": {
+        "type": "string"
+      },
+      "node": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "application",
+      "engineVersion",
+      "platform",
+      "arch",
+      "language",
+      "electron",
+      "chrome",
+      "node"
+    ],
+    "additionalProperties": false
+  },
+  "execution": {
+    "kind": "expression",
+    "expression": "async () => { const c=window.vscode.context.configuration(); const p=window.vscode.process; return {application:c.product.nameShort,engineVersion:c.product.version,platform:p.platform,arch:p.arch,language:document.documentElement.lang,electron:p.versions.electron,chrome:p.versions.chrome,node:p.versions.node}; }",
+    "requiredMethods": []
+  },
+  "verification": {
+    "status": "verified",
+    "appVersion": "1.104.3",
+    "date": "2026-10-22",
+    "evidence": [
+      "tools/research/evidence/2026-10-22-trae-mcp/INDEX.md"
+    ]
+  }
+}

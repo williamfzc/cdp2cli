@@ -1,0 +1,66 @@
+{
+  "name": "workspace",
+  "description": "Read the workspace folders attached to this Trae renderer; returns up to 128 folders and excludes file contents.",
+  "sideEffect": "read",
+  "inputSchema": {
+    "type": "object",
+    "properties": {},
+    "required": [],
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "folderCount": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "folders": {
+        "type": "array",
+        "maxItems": 128,
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "scheme": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "scheme",
+            "path"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "truncated": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "folderCount",
+      "folders",
+      "truncated"
+    ],
+    "additionalProperties": false
+  },
+  "execution": {
+    "kind": "expression",
+    "expression": "async () => { const folders=window.icubeWorkspace.folders; return {folderCount:folders.length,folders:folders.slice(0,128).map(f=>({name:f.name,scheme:f.uri.scheme,path:f.uri.path})),truncated:folders.length>128}; }",
+    "requiredMethods": []
+  },
+  "verification": {
+    "status": "verified",
+    "appVersion": "1.104.3",
+    "date": "2026-10-22",
+    "evidence": [
+      "tools/research/evidence/2026-10-22-trae-mcp/INDEX.md"
+    ]
+  }
+}

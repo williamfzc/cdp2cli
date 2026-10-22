@@ -1,0 +1,49 @@
+{
+  "desktopVersion": "2.9.1",
+  "engineVersion": "1.104.3",
+  "electron": "37.6.1",
+  "chrome": "138.0.7204.251",
+  "node": "22.19.0",
+  "endpoint": "http://127.0.0.1:9231",
+  "pageFilter": "/workbench/workbench.html",
+  "bridge": "window.icubeWorkspace",
+  "workspaceFolderFields": [
+    "raw",
+    "uri",
+    "index",
+    "name"
+  ],
+  "verifiedReadIpcChannels": [
+    "vscode:isWindowMaximized",
+    "vscode:getWindowPosition"
+  ],
+  "unpublishedReadCandidate": "vscode.process.getProcessMemoryInfo()",
+  "negativeResults": [
+    "An isolated user-data directory opened setup/setup.html rather than workbench. No onboarding actions were performed.",
+    "Two bundled CLI file-open attempts returned zero, but editor and tab selectors remained empty. File-content reads were not published.",
+    "An initial restart check using window.vscode as the readiness gate reported ready before workspace initialization. The manifest now gates on window.icubeWorkspace; the complete restart check was rerun."
+  ],
+  "staticSourceSha256": {
+    "out/vs/base/parts/sandbox/electron-browser/preload.js": "7cdc0917b3ea4847043a0bd0dd1013f4f07282e8de1af0709a98a60b2794b244",
+    "out/vs/code/electron-browser/workbench/workbench.js": "2345ca31a7e015c3798a7fffdd3bfa05020c762de9cacb8d350aa91ba691ecb2",
+    "out/main.js": "d1b65339238c0acfcc52559726bc928c89531244aa1a0ce9ee6cb9c0d67b287d"
+  },
+  "preloadBridge": "window.vscode",
+  "preloadBridgeOwnKeys": [
+    "ipcRenderer",
+    "ipcMessagePort",
+    "webFrame",
+    "webUtils",
+    "process",
+    "context",
+    "towel",
+    "ahaReporter"
+  ],
+  "bridgeOwnKeys": [
+    "id",
+    "folders",
+    "configuration",
+    "transient",
+    "activeAIPanel"
+  ]
+}

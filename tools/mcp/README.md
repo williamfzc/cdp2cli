@@ -38,6 +38,9 @@ The ZCode example is verified for 3.16.2; it is not a profile for other applicat
 dedicated bridge, a manifest may use `bridge: "window"`; request-replay and DOM expressions still require their own
 evidence and live verification.
 
+The [Trae examples](./examples/trae/) separately verify workspace folders, runtime identity and window state for desktop
+2.9.1 / engine 1.104.3. They do not expose AI task operations or editor contents; see [the measured profile](../../profiles/trae.md).
+
 ## Create, extend and modify
 
 ```sh

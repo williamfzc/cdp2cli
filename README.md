@@ -50,6 +50,7 @@ itself; users never pass a port manually or set up an environment first.
   "Auto-generated with cdp2cli". It is the **living proof the method works**; this repo keeps its app facts
   ([profiles/zcode.md](./profiles/zcode.md)), first contract ([contracts/ssh-list.json](./contracts/ssh-list.json))
   and probe ([tools/research/probe-zcode.mjs](./tools/research/probe-zcode.mjs)) as format samples for new apps.
+- **Trae (read-only MCP trial)**: Trae desktop 2.9.1 / engine 1.104.3 was tested with an independently generated service. Workspace folders, runtime identity and window geometry are verified; AI task operations and editor contents remain unresolved. See [the profile](./profiles/trae.md) and [verification record](./tools/research/evidence/2026-10-22-trae-mcp/INDEX.md).
 - **Page-state graph direction**: from a "fixed command tree" toward a contextual page-state graph (`inspect` / `help` /
   `act`) — currently design only, see [docs/page-state-graph-design.md](./docs/page-state-graph-design.md).
 - **MCP workflow (implemented)**: the reusable toolkit provides the first-service and ongoing capability workflow; the generated
