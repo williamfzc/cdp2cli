@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-23",
+  "domain": "scheduled tasks (定时任务, renamed 自动任务 in 2.33.5)",
+  "priorVerification": "2026-09-09 on DoubaoWork 2.27.6: POST /alice/job_cron/list {size:100,sort_order:1} replayed twice, 17 jobs, schema consistent (maintainers' local forensics)",
+  "currentAppVersion": "2.33.5 (CEF 147.0.7727.149)",
+  "observations": [
+    "bare replay of the 2026-09 request body returns HTTP 200 code 710010202 'common invalid param'",
+    "replay with the app's own query string (version_code=20800&language=zh&device_platform=web&doubao_device_platform=desktop, with and without aid) returns the same 710010202 — the body schema itself changed",
+    "28 POST requests captured at CDP Network level across an away-and-back navigation to 自动任务: zero /alice/job_cron/* requests; the view renders from preloaded/cached data or a non-HTTP channel (background-page long connection)",
+    "the 自动任务 view DOM was observed present (cron-named elements) in one check and gone in a later one — the view is transient/overlay-like; no stable DOM enumeration rule established tonight"
+  ],
+  "conclusion": "cron read capability regressed from verified to unresolved on 2.33.5",
+  "recoveryPaths": [
+    "capture the new request body by forcing a cold data load (fresh app start with Network capture, or clearing the view cache)",
+    "inspect the background page WebSocket frames for the list push",
+    "re-derive a DOM enumeration rule from the settled 自动任务 view"
+  ],
+  "pluginListNegative": "POST /alice/office/skills/plugin/list_by_user {runtime_type:2} — the app's own call returns code 0, bare same-context replay returns 623010003 (risk-control gate suspected, same family as the drive-domain mssdk gate); not published"
+}

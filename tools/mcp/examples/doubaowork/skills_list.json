@@ -1,0 +1,68 @@
+{
+  "name": "skills_list",
+  "description": "List user and featured office skills from the app's own skills endpoint, replayed in the logged-in page context; runtimeType defaults to the observed library-page value 2.",
+  "sideEffect": "read",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "runtimeType": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 4,
+        "description": "runtime_type observed values: 2 = skill library page, 1 = inside a session (unverified variant)"
+      }
+    },
+    "required": [],
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "httpStatus": {
+        "type": "integer"
+      },
+      "code": {
+        "type": [
+          "integer",
+          "null"
+        ]
+      },
+      "hasMore": {
+        "type": [
+          "boolean",
+          "null"
+        ]
+      },
+      "skillCount": {
+        "type": "integer"
+      },
+      "truncated": {
+        "type": "boolean"
+      },
+      "skills": {
+        "type": "array",
+        "maxItems": 200,
+        "items": {
+          "type": "object"
+        }
+      }
+    },
+    "required": [
+      "code",
+      "skillCount"
+    ]
+  },
+  "execution": {
+    "kind": "expression",
+    "expression": "async (input) => { const r=await fetch('https://www.doubao.com/alice/office/skills/list_user_and_featured?version_code=20800&language=zh&device_platform=web&doubao_device_platform=desktop',{method:'POST',headers:{'content-type':'application/json'},credentials:'include',body:JSON.stringify({runtime_type:Number.isInteger(input&&input.runtimeType)?input.runtimeType:2})}); const b=await r.json().catch(()=>null); const d=b&&b.data; const skills=(d&&Array.isArray(d.skills)?d.skills:[]).slice(0,200).map(s=>({name:String(s.name||'').slice(0,120),displayName:String(s.display_name||'').slice(0,160),description:String(s.display_description||s.description||'').slice(0,300),externalSkillId:String(s.external_skill_id||'').slice(0,120),categories:(Array.isArray(s.categories)?s.categories:[]).slice(0,5).map(c=>String(c.category_name||'').slice(0,80)),recommend:s.recommend===true,type:Number.isInteger(s.type)?s.type:null,visible:s.visible===true})); return {httpStatus:r.status,code:Number.isInteger(b&&b.code)?b.code:null,hasMore:d?d.has_more===true:null,skillCount:skills.length,truncated:(d&&Array.isArray(d.skills)?d.skills.length:0)>200,skills}; }",
+    "requiredMethods": []
+  },
+  "verification": {
+    "status": "verified",
+    "appVersion": "147.0.0.0",
+    "date": "2026-10-23",
+    "evidence": [
+      "tools/research/evidence/2026-10-23-doubaowork-mcp/INDEX.md"
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-22T17:04:29.371Z",
+  "node": "v22.21.1",
+  "warmupCalls": 12,
+  "measuredCalls": 120,
+  "retainedHeapGrowthBudgetBytes": 16777216,
+  "samples": [
+    {
+      "label": "warmup",
+      "heapUsed": 8877896,
+      "rss": 76333056
+    },
+    {
+      "label": "calls-30",
+      "heapUsed": 9018480,
+      "rss": 77955072
+    },
+    {
+      "label": "calls-60",
+      "heapUsed": 9033440,
+      "rss": 78872576
+    },
+    {
+      "label": "calls-90",
+      "heapUsed": 9063824,
+      "rss": 78954496
+    },
+    {
+      "label": "calls-120",
+      "heapUsed": 9090320,
+      "rss": 79101952
+    },
+    {
+      "label": "closed",
+      "heapUsed": 9089560,
+      "rss": 79101952
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "doubaowork",
+  "endpoint": "http://127.0.0.1:9222",
+  "userAgentIncludes": "Chrome/",
+  "targetUrlIncludes": "doubaowork-chat/chat",
+  "bridge": "window",
+  "supportedVersions": [
+    "147.0.0.0"
+  ],
+  "limits": {
+    "requestTimeoutMs": 15000,
+    "connectTimeoutMs": 3000,
+    "maxQueue": 32,
+    "idleTimeoutMs": 30000,
+    "maxResponseBytes": 1048576
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "name": "skills_exposed",
+  "description": "Read which skills are currently exposed in the skill slots (root scope, observed default), replayed in the logged-in page context.",
+  "sideEffect": "read",
+  "inputSchema": {
+    "type": "object",
+    "properties": {},
+    "required": [],
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "httpStatus": {
+        "type": "integer"
+      },
+      "code": {
+        "type": [
+          "integer",
+          "null"
+        ]
+      },
+      "hasFilled": {
+        "type": [
+          "boolean",
+          "null"
+        ]
+      },
+      "isDefault": {
+        "type": [
+          "boolean",
+          "null"
+        ]
+      },
+      "updatedAt": {
+        "type": [
+          "integer",
+          "null"
+        ]
+      },
+      "maxVisibleSlotCount": {
+        "type": [
+          "integer",
+          "null"
+        ]
+      },
+      "slotCount": {
+        "type": "integer"
+      },
+      "slots": {
+        "type": "array",
+        "maxItems": 20,
+        "items": {
+          "type": "object"
+        }
+      }
+    },
+    "required": [
+      "code",
+      "slotCount"
+    ]
+  },
+  "execution": {
+    "kind": "expression",
+    "expression": "async () => { const r=await fetch('https://www.doubao.com/alice/office/skills/get_exposed?version_code=20800&language=zh&device_platform=web&doubao_device_platform=desktop',{method:'POST',headers:{'content-type':'application/json'},credentials:'include',body:JSON.stringify({scope:{scope_type:1,scope_id:''}})}); const b=await r.json().catch(()=>null); const d=b&&b.data; const slots=(d&&Array.isArray(d.slots)?d.slots:[]).slice(0,20).map(s=>({slot:Number.isInteger(s.slot)?s.slot:null,skillId:String(s.skill_id||'').slice(0,120),skillName:String(s.skill_name||'').slice(0,160),skillDisplayName:String(s.skill_display_name||'').slice(0,160),skillType:Number.isInteger(s.skill_type)?s.skill_type:null,source:Number.isInteger(s.source)?s.source:null})); return {httpStatus:r.status,code:Number.isInteger(b&&b.code)?b.code:null,hasFilled:d?d.has_filled===true:null,isDefault:d?d.is_default===true:null,updatedAt:d&&Number.isFinite(d.updated_at)?d.updated_at:null,maxVisibleSlotCount:d&&d.config&&Number.isInteger(d.config.max_visible_slot_count)?d.config.max_visible_slot_count:null,slotCount:slots.length,slots}; }",
+    "requiredMethods": []
+  },
+  "verification": {
+    "status": "verified",
+    "appVersion": "147.0.0.0",
+    "date": "2026-10-23",
+    "evidence": [
+      "tools/research/evidence/2026-10-23-doubaowork-mcp/INDEX.md"
+    ]
+  }
+}

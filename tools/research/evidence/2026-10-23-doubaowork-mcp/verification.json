@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-22T17:01:55.863Z",
+  "runs": {
+    "chat_list": {
+      "consistent": true,
+      "count": 15,
+      "summary": {
+        "conversationCount": 15,
+        "truncated": false,
+        "conversations": 15
+      }
+    },
+    "skills_list": {
+      "consistent": true,
+      "count": 105,
+      "summary": {
+        "httpStatus": 200,
+        "code": 0,
+        "hasMore": false,
+        "skillCount": 105,
+        "truncated": false,
+        "skills": 105
+      }
+    },
+    "skills_exposed": {
+      "consistent": true,
+      "count": 1,
+      "summary": {
+        "httpStatus": 200,
+        "code": 0,
+        "hasFilled": false,
+        "isDefault": true,
+        "updatedAt": 0,
+        "maxVisibleSlotCount": 1,
+        "slotCount": 1,
+        "slots": 1
+      }
+    }
+  }
+}

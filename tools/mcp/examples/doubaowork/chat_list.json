@@ -1,0 +1,59 @@
+{
+  "name": "chat_list",
+  "description": "Read the DoubaoWork sidebar conversation list from the open chat page via the stable data-testid item rule; zero arguments, read-only.",
+  "sideEffect": "read",
+  "inputSchema": {
+    "type": "object",
+    "properties": {},
+    "required": [],
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "conversationCount": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "truncated": {
+        "type": "boolean"
+      },
+      "conversations": {
+        "type": "array",
+        "maxItems": 200,
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "title"
+          ]
+        }
+      }
+    },
+    "required": [
+      "conversationCount",
+      "conversations"
+    ]
+  },
+  "execution": {
+    "kind": "expression",
+    "expression": "async () => { const nodes=[...document.querySelectorAll('[data-testid=\"conversation-list-v2-item\"]')].slice(0,200); const conversations=nodes.map(el=>{const a=el.closest('a[href]');const m=(a&&a.getAttribute('href')||'').match(/\\/chat\\/(\\d+)/);return {id:m?m[1]:'',title:((el.innerText||'').split('\\n')[0]||'').slice(0,200)};}); return {conversationCount:conversations.length,truncated:nodes.length>=200,conversations}; }",
+    "requiredMethods": []
+  },
+  "verification": {
+    "status": "verified",
+    "appVersion": "147.0.0.0",
+    "date": "2026-10-23",
+    "evidence": [
+      "tools/research/evidence/2026-10-23-doubaowork-mcp/INDEX.md"
+    ]
+  }
+}

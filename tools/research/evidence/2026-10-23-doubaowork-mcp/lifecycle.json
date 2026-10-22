@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-22T17:03:55.219Z",
+  "baselineConversations": 15,
+  "baselineSource": "verify battery + service smoke, 2026-10-23",
+  "offlineReport": {
+    "fastMs": 12,
+    "mode": "isError-payload",
+    "example": "[{\"type\":\"text\",\"text\":\"Application unavailable: fetch failed\"}]"
+  },
+  "recovered": {
+    "conversations": 15,
+    "polls": 2
+  },
+  "quitPath": {
+    "osascript": "refused with -128 (user cancelled) when instance was resident — measured during attach phase tonight",
+    "sigterm": "ignored by launcher and browser — measured during attach phase tonight",
+    "effective": "SIGKILL of launcher+browser+helpers"
+  }
+}
